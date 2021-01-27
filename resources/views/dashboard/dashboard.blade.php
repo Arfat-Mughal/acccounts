@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard', 'page' => 'Dashboard', 'section' => ''])
+@extends('layouts.app', ['pageSlug' => 'dashboard', 'page' => 'Dashboard', 'section' => 'dashboard'])
 
 @section('content')
     <!--begin::Content-->
