@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Session;
+
 class LoginController extends Controller
 {
     public function __construct()
@@ -29,7 +32,7 @@ class LoginController extends Controller
 
         if (auth()->attempt($credentials)) {
 
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
 
         }else{
             session()->flash('message', 'Invalid credentials');
@@ -43,13 +46,14 @@ class LoginController extends Controller
     public function process_signup(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
+            'fullname' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|between:4,15',
+            'password_confirmed' => 'required|same:password'
         ]);
 
         $user = User::create([
-            'name' => trim($request->input('name')),
+            'name' => trim($request->input('fullname')),
             'email' => strtolower($request->input('email')),
             'password' => bcrypt($request->input('password')),
         ]);
@@ -58,10 +62,34 @@ class LoginController extends Controller
 
         return redirect()->route('login');
     }
+
+    public function forget_password()
+    {
+        return view('Auth.forget-password');
+    }
+
+    public function forget_password_request(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        $user = User::where('email', $request->input('email'))->first();
+        if($user){
+            session()->flash('message', 'Password Sent to your given email');
+            return redirect()->route('login');
+        }else{
+            session()->flash('message', 'Email not found create your account');
+            return redirect()->route('login');
+        }
+    }
+
     public function logout()
     {
-        \Auth::logout();
+        Session::regenerate();
+        Auth::logout();
 
         return redirect()->route('login');
     }
+
 }
