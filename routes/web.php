@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,7 @@ Route::namespace('Auth')->group(function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+
+    Route::get('/company/create',[CompanyController::class,'index'])->name('create.company');
+    Route::post('/company/create',[CompanyController::class,'company_create'])->name('create_company');
 });

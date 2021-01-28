@@ -7,7 +7,7 @@
     <list default="true" id="3422b96a-7469-4237-85bd-f792320ba903" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,6 +172,9 @@
       <workItem from="1611764684218" duration="1283000" />
       <workItem from="1611766073520" duration="7000" />
       <workItem from="1611766120621" duration="3961000" />
+      <workItem from="1611815463217" duration="2535000" />
+      <workItem from="1611821440717" duration="1628000" />
+      <workItem from="1611831530842" duration="6251000" />
     </task>
     <servers />
   </component>
