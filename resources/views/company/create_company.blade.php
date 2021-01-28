@@ -1,7 +1,6 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard', 'page' => 'Dashboard', 'section' => 'dashboard'])
+@extends('layouts.app', ['pageSlug' => 'create-company', 'page' => 'Create Company', 'section' => 'company'])
 
 @section('content')
-    <!--begin::Content-->
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
         <div class="subheader min-h-lg-175px pt-5 pb-7 subheader-transparent" id="kt_subheader">
@@ -11,7 +10,7 @@
                     <!--begin::Heading-->
                     <div class="d-flex flex-column">
                         <!--begin::Title-->
-                        <h2 class="text-white font-weight-bold my-2 mr-5">Dashboard</h2>
+                        <h2 class="text-white font-weight-bold my-2 mr-5">Create Company</h2>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <div class="d-flex align-items-center font-weight-bold my-2">
@@ -23,6 +22,10 @@
                             <!--begin::Item-->
                             <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
                             <a href="" class="text-white text-hover-white opacity-75 hover-opacity-100">Dashboard</a>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
+                            <a href="" class="text-white text-hover-white opacity-75 hover-opacity-100">Create company</a>
                             <!--end::Item-->
                         </div>
                         <!--end::Breadcrumb-->
@@ -36,10 +39,8 @@
                     <a href="#" class="btn btn-transparent-white font-weight-bold py-3 px-6 mr-2">Reports</a>
                     <!--end::Button-->
                     <!--begin::Dropdown-->
-                    <div class="dropdown dropdown-inline ml-2" data-toggle="tooltip" title="Quick actions"
-                         data-placement="top">
-                        <a href="#" class="btn btn-white font-weight-bold py-3 px-6" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Actions</a>
+                    <div class="dropdown dropdown-inline ml-2" data-toggle="tooltip" title="" data-placement="top" data-original-title="Quick actions">
+                        <a href="#" class="btn btn-white font-weight-bold py-3 px-6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions</a>
                         <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right">
                             <!--begin::Navigation-->
                             <ul class="navi navi-hover py-5">
@@ -66,8 +67,7 @@
 														</span>
                                         <span class="navi-text">Groups</span>
                                         <span class="navi-link-badge">
-															<span
-                                                                class="label label-light-primary label-inline font-weight-bold">new</span>
+															<span class="label label-light-primary label-inline font-weight-bold">new</span>
 														</span>
                                     </a>
                                 </li>
@@ -103,8 +103,7 @@
 														</span>
                                         <span class="navi-text">Privacy</span>
                                         <span class="navi-link-badge">
-															<span
-                                                                class="label label-light-danger label-rounded font-weight-bold">5</span>
+															<span class="label label-light-danger label-rounded font-weight-bold">5</span>
 														</span>
                                     </a>
                                 </li>
@@ -122,26 +121,46 @@
         <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-                <!--begin::Dashboard-->
-                <!--begin::Mixed Widget 10-->
-                <div class="card card-custom gutter-b" style="height: 150px">
-                    <!--begin::Body-->
-                    <div class="card-body d-flex align-items-center justify-content-between flex-wrap">
-                        <div class="mr-2">
-                            <h3 class="font-weight-bolder">Create Company</h3>
-                            <div class="text-dark-50 font-size-lg mt-2">Generate your company</div>
+                <div class="col-8 offset-2">
+                    <div class="card card-custom">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Creating Company
+                            </h3>
                         </div>
-                        <a href="{{route('create.company')}}" class="btn btn-primary font-weight-bold py-3 px-6">Create
-                            Now</a>
+                        <!--begin::Form-->
+                        <form class="form">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Input</label>
+                                    <input type="email" class="form-control form-control-solid" placeholder="Example input"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Select</label>
+                                    <select class="form-control form-control-solid">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleTextarea">Textarea</label>
+                                    <textarea class="form-control form-control-solid" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="reset" class="btn btn-primary mr-2">Submit</button>
+                                <button type="reset" class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </form>
+                        <!--end::Form-->
                     </div>
-                    <!--end::Body-->
                 </div>
-                <!--end::Mixed Widget 10-->
-                <!--end::Dashboard-->
             </div>
             <!--end::Container-->
         </div>
         <!--end::Entry-->
     </div>
-    <!--end::Content-->
 @endsection
