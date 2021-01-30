@@ -33,6 +33,10 @@ Route::namespace('Auth')->group(function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
+    Route::get('country-state-city',[CompanyController::class,'post_Country']);
+    Route::post('get-states-by-country',[CompanyController::class,'getState']);
+    Route::post('get-cities-by-state',[CompanyController::class,'getCity']);
+
     Route::get('/company/create',[CompanyController::class,'index'])->name('create.company');
     Route::post('/company/create',[CompanyController::class,'company_create'])->name('create_company');
 });

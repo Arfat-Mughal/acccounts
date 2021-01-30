@@ -25,7 +25,8 @@
                             <!--end::Item-->
                             <!--begin::Item-->
                             <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                            <a href="" class="text-white text-hover-white opacity-75 hover-opacity-100">Create company</a>
+                            <a href="" class="text-white text-hover-white opacity-75 hover-opacity-100">Create
+                                company</a>
                             <!--end::Item-->
                         </div>
                         <!--end::Breadcrumb-->
@@ -39,8 +40,10 @@
                     <a href="#" class="btn btn-transparent-white font-weight-bold py-3 px-6 mr-2">Reports</a>
                     <!--end::Button-->
                     <!--begin::Dropdown-->
-                    <div class="dropdown dropdown-inline ml-2" data-toggle="tooltip" title="" data-placement="top" data-original-title="Quick actions">
-                        <a href="#" class="btn btn-white font-weight-bold py-3 px-6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions</a>
+                    <div class="dropdown dropdown-inline ml-2" data-toggle="tooltip" title="" data-placement="top"
+                         data-original-title="Quick actions">
+                        <a href="#" class="btn btn-white font-weight-bold py-3 px-6" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Actions</a>
                         <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right">
                             <!--begin::Navigation-->
                             <ul class="navi navi-hover py-5">
@@ -67,7 +70,8 @@
 														</span>
                                         <span class="navi-text">Groups</span>
                                         <span class="navi-link-badge">
-															<span class="label label-light-primary label-inline font-weight-bold">new</span>
+															<span
+                                                                class="label label-light-primary label-inline font-weight-bold">new</span>
 														</span>
                                     </a>
                                 </li>
@@ -103,7 +107,8 @@
 														</span>
                                         <span class="navi-text">Privacy</span>
                                         <span class="navi-link-badge">
-															<span class="label label-light-danger label-rounded font-weight-bold">5</span>
+															<span
+                                                                class="label label-light-danger label-rounded font-weight-bold">5</span>
 														</span>
                                     </a>
                                 </li>
@@ -131,23 +136,72 @@
                         <!--begin::Form-->
                         <form class="form">
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label>Input</label>
-                                    <input type="email" class="form-control form-control-solid" placeholder="Example input"/>
-                                </div>
-                                <div class="form-group">
-                                    <label>Select</label>
-                                    <select class="form-control form-control-solid">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleTextarea">Textarea</label>
-                                    <textarea class="form-control form-control-solid" rows="3"></textarea>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Comany Name</label>
+                                            <input type="text" class="form-control form-control-solid"
+                                                   placeholder="Please Type Comany Name"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Type of Organization</label>
+                                            <select class="form-control form-control-solid">
+                                                <option value="">-Choose-</option>
+                                                @foreach($types as $type)
+                                                    <option value="{{$type->id}}">{{$type->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Financial Year Start</label>
+                                            <select class="form-control form-control-solid">
+                                                <option value="">-Choose-</option>
+                                                @foreach($months as $type)
+                                                    <option value="{{$type->id}}">{{$type->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Country</label>
+                                            <select class="form-control form-control-solid" id="country-dropdown">
+                                                <option value="">-Choose-</option>
+                                                @foreach($country as $type)
+                                                    <option value="{{$type->id}}">{{$type->country_name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Timezone</label>
+                                            <select class="form-control form-control-solid">
+                                                <option value="">-Choose-</option>
+                                                @foreach($time_zone as $type)
+                                                    <option value="{{$type->id}}">{{$type->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>State</label>
+                                            <select class="form-control form-control-solid" id="state-dropdown">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <select class="form-control form-control-solid" id="city-dropdown">
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -164,3 +218,46 @@
         <!--end::Entry-->
     </div>
 @endsection
+@push('js')
+    <script>
+        $(document).ready(function () {
+            $('#country-dropdown').on('change', function () {
+                var country_id = this.value;
+                $("#state-dropdown").html('');
+                $.ajax({
+                    url: "{{url('get-states-by-country')}}",
+                    type: "POST",
+                    data: {
+                        country_id: country_id,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        $.each(result.states, function (key, value) {
+                            $("#state-dropdown").append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+                        $('#city-dropdown').html('<option value="">Select State First</option>');
+                    }
+                });
+            });
+            $('#state-dropdown').on('change', function () {
+                var state_id = this.value;
+                $("#city-dropdown").html('');
+                $.ajax({
+                    url: "{{url('get-cities-by-state')}}",
+                    type: "POST",
+                    data: {
+                        state_id: state_id,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        $.each(result.cities, function (key, value) {
+                            $("#city-dropdown").append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+@endpush
