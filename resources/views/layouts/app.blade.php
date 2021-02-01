@@ -18,6 +18,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $page }} - {{ config('app.name') }}</title>
     @include('includes.css')
+    @livewireStyles
 </head>
 <body id="kt_body" style="background-image: url({{asset('assets/media/bg/bg-10.jpg')}})"
       class="quick-panel-right demo-panel-right offcanvas-right header-fixed subheader-enabled page-loading">
@@ -38,5 +39,6 @@ License: You must have a valid license purchased only from themeforest(the above
 @include('includes.sticky-toolbar')
 @include('includes.demo-panel')
 @include('includes.js')
+@livewireScripts
 </body>
 </html>

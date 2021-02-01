@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class City extends Model
 {
-    public function state(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    protected $casts = [
+        'id' => 'string'
+    ];
+
+    public function state()
     {
         return $this->belongsTo(State::class,'state_id');
     }

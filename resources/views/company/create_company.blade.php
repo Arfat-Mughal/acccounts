@@ -134,20 +134,21 @@
                             </h3>
                         </div>
                         <!--begin::Form-->
-                        <form class="form">
+                        <form class="form" method="post" action="{{route('create_company')}}">
+                            @csrf
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>Comany Name</label>
-                                            <input type="text" class="form-control form-control-solid"
+                                            <input type="text" name="name" class="form-control form-control-solid"
                                                    placeholder="Please Type Comany Name"/>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Type of Organization</label>
-                                            <select class="form-control form-control-solid">
+                                            <select class="form-control form-control-solid" name="type_id">
                                                 <option value="">-Choose-</option>
                                                 @foreach($types as $type)
                                                     <option value="{{$type->id}}">{{$type->name}}</option>
@@ -158,7 +159,7 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Financial Year Start</label>
-                                            <select class="form-control form-control-solid">
+                                            <select class="form-control form-control-solid" name="year_id">
                                                 <option value="">-Choose-</option>
                                                 @foreach($months as $type)
                                                     <option value="{{$type->id}}">{{$type->name}}</option>
@@ -168,19 +169,8 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label>Country</label>
-                                            <select class="form-control form-control-solid" id="country-dropdown">
-                                                <option value="">-Choose-</option>
-                                                @foreach($country as $type)
-                                                    <option value="{{$type->id}}">{{$type->country_name}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
                                             <label>Timezone</label>
-                                            <select class="form-control form-control-solid">
+                                            <select class="form-control form-control-solid" name="time_zone">
                                                 <option value="">-Choose-</option>
                                                 @foreach($time_zone as $type)
                                                     <option value="{{$type->id}}">{{$type->name}}</option>
@@ -190,23 +180,47 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label>State</label>
-                                            <select class="form-control form-control-solid" id="state-dropdown">
+                                            <label>Country</label>
+                                            <select class="form-control form-control-solid" id="country-dropdown" name="country_id">
+                                                <option value="">-Choose-</option>
+                                                @foreach($country as $type)
+                                                    <option value="{{$type->id}}">{{$type->country_name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label>State</label>
+                                            <select class="form-control form-control-solid" id="state-dropdown" name="state_id">
+                                                <option value="">-Choose-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
                                         <div class="form-group">
                                             <label>City</label>
-                                            <select class="form-control form-control-solid" id="city-dropdown">
+                                            <select class="form-control form-control-solid" id="city-dropdown" name="city_id">
+                                                <option value="">-Choose-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label>Currency</label>
+                                            <select class="form-control form-control-solid" name="currency_id">
+                                            <option value="">-Choose-</option>
+                                            @foreach($currency as $type)
+                                                <option value="{{$type->id}}">{{$type->name}}({{$type->symbol}})</option>
+                                            @endforeach
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="reset" class="btn btn-primary mr-2">Submit</button>
-                                <button type="reset" class="btn btn-secondary">Cancel</button>
+                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                <button type="{{route('dashboard')}}" class="btn btn-secondary">Cancel</button>
                             </div>
                         </form>
                         <!--end::Form-->
@@ -236,7 +250,7 @@
                         $.each(result.states, function (key, value) {
                             $("#state-dropdown").append('<option value="' + value.id + '">' + value.name + '</option>');
                         });
-                        $('#city-dropdown').html('<option value="">Select State First</option>');
+                        $('#city-dropdown').html('<option value="">-Choose-</option>');
                     }
                 });
             });
