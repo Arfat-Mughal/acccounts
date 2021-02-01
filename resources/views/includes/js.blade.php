@@ -14,3 +14,5 @@
 <script src="{{asset('assets/js/pages/widgets.js?v=7.0.3')}}"></script>
 <!--end::Page Scripts-->
 @stack('js')
+@livewireScripts
+

@@ -133,6 +133,7 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ndnd9dZDdznW1ZCIlDmhXw7Eim" />
@@ -172,7 +173,7 @@
       <workItem from="1611821440717" duration="1628000" />
       <workItem from="1611831530842" duration="6251000" />
       <workItem from="1611990278535" duration="6260000" />
-      <workItem from="1611999991791" duration="9673000" />
+      <workItem from="1611999991791" duration="11325000" />
     </task>
     <servers />
   </component>
