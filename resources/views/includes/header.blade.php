@@ -826,7 +826,7 @@
                                             </h3>
                                             <ul class="menu-inner">
                                                 <li class="menu-item" aria-haspopup="true">
-                                                    <a href="#" class="menu-link">
+                                                    <a href="{{route('customer.list')}}" class="menu-link">
                                                         <i class="menu-bullet menu-bullet-line">
                                                             <span></span>
                                                         </i>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,4 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/company/create',[CompanyController::class,'index'])->name('create.company');
     Route::post('/company/create',[CompanyController::class,'company_create'])->name('create_company');
+
+    Route::get('/sales/customers',[SaleController::class,'index'])->name('customer.list');
+    Route::get('/sales/customers/create',[SaleController::class,'create'])->name('create.customer');
+
+
 });

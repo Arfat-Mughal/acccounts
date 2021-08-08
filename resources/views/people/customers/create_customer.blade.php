@@ -11,11 +11,7 @@
                     <!--begin::Heading-->
                     <div class="d-flex flex-column">
                         <!--begin::Title-->
-                        @if($campany->name)
-                        <h2 class="text-white font-weight-bold my-2 mr-5">{{ strtoupper($campany->name ) }}</h2>
-                        @else
-                            <h2 class="text-white font-weight-bold my-2 mr-5">Dashboard</h2>
-                        @endif
+                        <h2 class="text-white font-weight-bold my-2 mr-5">Dashboard</h2>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <div class="d-flex align-items-center font-weight-bold my-2">
@@ -128,7 +124,48 @@
             <div class="container">
                 <!--begin::Dashboard-->
                 <!--begin::Mixed Widget 10-->
-
+                <form class="form">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Full Name:</label>
+                            <input type="email" class="form-control form-control-solid" placeholder="Enter full name"/>
+                            <span class="form-text text-muted">Please enter your full name</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Email address:</label>
+                            <input type="email" class="form-control form-control-solid" placeholder="Enter email"/>
+                            <span class="form-text text-muted">We'll never share your email with anyone else</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Subscription</label>
+                            <div class="input-group input-group-lg">
+                                <div class="input-group-prepend"><span class="input-group-text" >$</span></div>
+                                <input type="text" class="form-control form-control-solid" placeholder="99.9"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Communication:</label>
+                            <div class="checkbox-list">
+                                <label class="checkbox">
+                                    <input type="checkbox"/> Email
+                                    <span></span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox"/> SMS
+                                    <span></span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox"/> Phone
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="reset" class="btn btn-primary mr-2">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
                 <!--end::Mixed Widget 10-->
                 <!--end::Dashboard-->
             </div>

@@ -11,11 +11,7 @@
                     <!--begin::Heading-->
                     <div class="d-flex flex-column">
                         <!--begin::Title-->
-                        @if($campany->name)
-                        <h2 class="text-white font-weight-bold my-2 mr-5">{{ strtoupper($campany->name ) }}</h2>
-                        @else
-                            <h2 class="text-white font-weight-bold my-2 mr-5">Dashboard</h2>
-                        @endif
+                        <h2 class="text-white font-weight-bold my-2 mr-5">Dashboard</h2>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <div class="d-flex align-items-center font-weight-bold my-2">
@@ -128,7 +124,18 @@
             <div class="container">
                 <!--begin::Dashboard-->
                 <!--begin::Mixed Widget 10-->
-
+                <div class="card card-custom gutter-b" style="height: 150px">
+                    <!--begin::Body-->
+                    <div class="card-body d-flex align-items-center justify-content-between flex-wrap">
+                        <div class="mr-2">
+                            <h3 class="font-weight-bolder">Create Company</h3>
+                            <div class="text-dark-50 font-size-lg mt-2">Generate your company</div>
+                        </div>
+                        <a href="{{route('create.company')}}" class="btn btn-primary font-weight-bold py-3 px-6">Create
+                            Now</a>
+                    </div>
+                    <!--end::Body-->
+                </div>
                 <!--end::Mixed Widget 10-->
                 <!--end::Dashboard-->
             </div>

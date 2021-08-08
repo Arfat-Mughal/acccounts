@@ -12,5 +12,8 @@
 <!--begin::Layout Themes(used by all pages)-->
 <!--end::Layout Themes-->
 <link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
+{{--<link href="{{asset('assets/plugins/custom/datatables/datatables.bundle.css?v=7.0.3')}}" rel="stylesheet" type="text/css">--}}
