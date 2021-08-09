@@ -32,6 +32,7 @@ Route::namespace('Auth')->group(function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
     Route::get('country-state-city',[CompanyController::class,'post_Country']);
@@ -43,6 +44,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/sales/customers',[SaleController::class,'index'])->name('customer.list');
     Route::get('/sales/customers/create',[SaleController::class,'create'])->name('create.customer');
-
 
 });

@@ -8,15 +8,15 @@
             <!--begin::Login Header-->
             <div class="d-flex flex-center mb-15">
                 <a href="#">
-                    <img src="{{asset('assets/media/logos/logo-letter-13.png')}}" class="max-h-75px" alt="" />
+                    <img src="{{asset('assets/media/logos/logo-preview.png')}}" class="max-h-85px" alt="" />
                 </a>
             </div>
             <!--end::Login Header-->
             <!--begin::Login Sign in form-->
             <div class="login-signin">
                 <div class="mb-20">
-                    <h3 class="opacity-40 font-weight-normal">Sign In To Admin</h3>
-                    <p class="opacity-40">Enter your details to login to your account:</p>
+                    <h3 class="opacity-40 font-weight-normal">Sign In To Account Management System</h3>
+                    <p class="opacity-40">Enter your details to login to your account</p>
                     @if(Session::has('message'))
                         <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
                     @endif
