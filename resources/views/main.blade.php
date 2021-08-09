@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>OnePage Bootstrap Template - Index</title>
+    <title>Idea's Incorporators</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -54,23 +54,23 @@
 {{--                <li><a href="#portfolio">Portfolio</a></li>--}}
                 <li><a href="#team">Team</a></li>
 {{--                <li><a href="#pricing">Pricing</a></li>--}}
-                <li class="drop-down"><a href="">Drop Down</a>
-                    <ul>
-                        <li><a href="#">Drop Down 1</a></li>
-                        <li class="drop-down"><a href="#">Deep Drop Down</a>
-                            <ul>
-                                <li><a href="#">Deep Drop Down 1</a></li>
-                                <li><a href="#">Deep Drop Down 2</a></li>
-                                <li><a href="#">Deep Drop Down 3</a></li>
-                                <li><a href="#">Deep Drop Down 4</a></li>
-                                <li><a href="#">Deep Drop Down 5</a></li>
-                            </ul>
-                        </li>Sign In To Admin
-                        <li><a href="#">Drop Down 2</a></li>
-                        <li><a href="#">Drop Down 3</a></li>
-                        <li><a href="#">Drop Down 4</a></li>
-                    </ul>
-                </li>
+{{--                <li class="drop-down"><a href="">Drop Down</a>--}}
+{{--                    <ul>--}}
+{{--                        <li><a href="#">Drop Down 1</a></li>--}}
+{{--                        <li class="drop-down"><a href="#">Deep Drop Down</a>--}}
+{{--                            <ul>--}}
+{{--                                <li><a href="#">Deep Drop Down 1</a></li>--}}
+{{--                                <li><a href="#">Deep Drop Down 2</a></li>--}}
+{{--                                <li><a href="#">Deep Drop Down 3</a></li>--}}
+{{--                                <li><a href="#">Deep Drop Down 4</a></li>--}}
+{{--                                <li><a href="#">Deep Drop Down 5</a></li>--}}
+{{--                            </ul>--}}
+{{--                        </li>Sign In To Admin--}}
+{{--                        <li><a href="#">Drop Down 2</a></li>--}}
+{{--                        <li><a href="#">Drop Down 3</a></li>--}}
+{{--                        <li><a href="#">Drop Down 4</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
                 <li><a href="#contact">Contact</a></li>
 
             </ul>
@@ -379,8 +379,8 @@
                             </svg>
                             <i class="bx bxl-dribbble"></i>
                         </div>
-                        <h4><a href="">Lorem Ipsum</a></h4>
-                        <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                        <h4><a href="">Business Advisory</a></h4>
+                        <p>Analyse problems and potential risks businesses are facing and help provide advice</p>
                     </div>
                 </div>
 
@@ -392,8 +392,8 @@
                             </svg>
                             <i class="bx bx-file"></i>
                         </div>
-                        <h4><a href="">Sed Perspiciatis</a></h4>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                        <h4><a href="">Internal Audit</a></h4>
+                        <p>Risk management and evaluates the effectiveness of a company's internal controls, and accounting processes</p>
                     </div>
                 </div>
 
@@ -405,8 +405,8 @@
                             </svg>
                             <i class="bx bx-tachometer"></i>
                         </div>
-                        <h4><a href="">Magni Dolores</a></h4>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                        <h4><a href="">Book keeping</a></h4>
+                        <p>Process of recording all financial transactions made by a business</p>
                     </div>
                 </div>
 
@@ -418,8 +418,8 @@
                             </svg>
                             <i class="bx bx-layer"></i>
                         </div>
-                        <h4><a href="">Nemo Enim</a></h4>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                        <h4><a href="">Taxation</a></h4>
+                        <p>Applies to all types of involuntary levies, from income to capital gains to estate taxes</p>
                     </div>
                 </div>
 
@@ -431,8 +431,8 @@
                             </svg>
                             <i class="bx bx-slideshow"></i>
                         </div>
-                        <h4><a href="">Dele Cardo</a></h4>
-                        <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
+                        <h4><a href="">Payroll</a></h4>
+                        <p>Payroll can refer to the process of actually calculating and distributing wages and taxes</p>
                     </div>
                 </div>
 
@@ -444,8 +444,8 @@
                             </svg>
                             <i class="bx bx-arch"></i>
                         </div>
-                        <h4><a href="">Divera Don</a></h4>
-                        <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
+                        <h4><a href="">Best Practices</a></h4>
+                        <p>Set of guidelines, ethics, or ideas that represent the most efficient or prudent course of action in a given business situation</p>
                     </div>
                 </div>
 
