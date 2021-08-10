@@ -18,7 +18,9 @@ class MainController extends Controller
         ]);
 
         if ($validator->fails()){
-            return $validator->errors();
+            return redirect()
+                ->back()
+                ->withErrors($validator->errors());
         }
 
         Contact::create([
@@ -28,6 +30,8 @@ class MainController extends Controller
             'message' => $request->message
         ]);
 
-        return redirect('/')->with('success','Thank you');
+        return redirect()
+            ->back()
+            ->withSuccessMessage('Successfully Send');
     }
 }

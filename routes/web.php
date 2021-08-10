@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::post('/',[MainController::class,'store'])->name('storeContants');
+Route::post('/contact-us',[MainController::class,'store'])->name('store.requests');
 
 Route::namespace('Auth')->group(function () {
     Route::get('/login',[LoginController::class,'show_login_form'])->name('login');
