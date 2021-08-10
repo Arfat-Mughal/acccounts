@@ -75,18 +75,18 @@
                 {{--                    </ul>--}}
                 {{--                </li>--}}
                 <li><a href="#contact">Contact</a></li>
-
+                <li class="mx-3">
+                    @if (Route::has('login'))
+                        @auth
+                            <a href="{{ route('dashboard') }}" class="get-started-btn text-white">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}" class="get-started-btn text-white">Login</a>
+                        @endauth
+                    @endif
+                </li>
             </ul>
+
         </nav><!-- .nav-menu -->
-
-        @if (Route::has('login'))
-            @auth
-                <a href="{{ route('dashboard') }}" class="get-started-btn scrollto">Dashboard</a>
-            @else
-                <a href="{{ route('login') }}" class="get-started-btn scrollto">Login</a>
-            @endauth
-        @endif
-
     </div>
 </header><!-- End Header -->
 

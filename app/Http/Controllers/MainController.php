@@ -46,5 +46,6 @@ class MainController extends Controller
                 ->back()
                 ->withSuccessMessage('Saved Successfully');
         }
+        return redirect()->back()->withErrors(['email'=>'Email is required for Newsletter']);
     }
 }
