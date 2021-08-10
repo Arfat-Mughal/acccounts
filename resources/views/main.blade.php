@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Idea's Incorporators</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
@@ -955,17 +955,6 @@
 
                 <div class="col-lg-8 mt-5 mt-lg-0">
 
-                    @if (session('success_message'))
-                        <div class="col-sm-12">
-                            <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                                {{ session('success_message') }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                    @endif
-
                     <form action="{{route('store.requests')}}" method="post">
                         @csrf
                         <div class="form-row">
@@ -991,38 +980,50 @@
                                       data-msg="Please write something for us" placeholder="Message" ></textarea>
                             <div class="validate"></div>
                         </div>
-                        <div class="mb-3">
-                            @if ($errors->any())
-                                <div class="col-sm-12">
-                                    <div class="alert  alert-warning alert-dismissible fade show" role="alert">
-                                        @foreach ($errors->all() as $error)
-                                            <span><p>{{ $error }}</p></span>
-                                        @endforeach
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            @endif
-
-                                @if (session('error'))
-                                    <div class="col-sm-12">
-                                        <div class="alert  alert-danger alert-dismissible fade show" role="alert">
-                                            {{ session('error') }}
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                @endif
-
-{{--                            <div class="sent-message">Your message has been sent. Thank you!</div>--}}
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="">Send Message</button>
+                        <div class="text-right">
+                            <button type="submit" class="get-started-btn">Send Message</button>
                         </div>
                     </form>
+                    <div class="mb-2 mt-2">
 
+                        @if (session('success_message'))
+                            <div class="col-sm-12">
+                                <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('success_message') }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        @endif
+
+
+                        @if ($errors->any())
+                            <div class="col-sm-12">
+                                <div class="alert  alert-warning alert-dismissible fade show" role="alert">
+                                    @foreach ($errors->all() as $error)
+                                        <span><p>{{ $error }}</p></span>
+                                    @endforeach
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        @endif
+
+                        @if (session('error'))
+                            <div class="col-sm-12">
+                                <div class="alert  alert-danger alert-dismissible fade show" role="alert">
+                                    {{ session('error') }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        @endif
+
+                        {{--                            <div class="sent-message">Your message has been sent. Thank you!</div>--}}
+                    </div>
                 </div>
 
             </div>
@@ -1074,12 +1075,15 @@
 
                 <div class="col-lg-4 col-md-6 footer-newsletter">
                     <h4>Join Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                    <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
-                    </form>
+                    <p>To receive email updates on new announcement</p>
+                        <form action="{{route('store.subscriptions')}}" method="post">
+                            @csrf
+                            <div class="d-flex d-inline">
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Enter Your Email Address">
+                                <button type="submit" class="btn btn-primary ml-2">Subscribe</button>
+                            </div>
+                        </form>
                 </div>
-
             </div>
         </div>
     </div>
@@ -1112,7 +1116,7 @@
 <div id="preloader"></div>
 
 <!-- Vendor JS Files -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="{{asset('web_assets/vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('web_assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('web_assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
@@ -1129,34 +1133,4 @@
 <script src="{{asset('web_assets/js/main.js')}}"></script>
 
 </body>
-
-{{--<script>--}}
-{{--    function addForm() {--}}
-{{--        $.ajaxSetup({--}}
-{{--            headers: {--}}
-{{--                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-{{--            }--}}
-{{--        });--}}
-{{--        $.ajax({--}}
-{{--            url: "{{url('/')}}",--}}
-{{--            type: "POST",--}}
-{{--            data: $('#contactUsForm').serialize(),--}}
-{{--            success: function (data) {--}}
-{{--                    console.log(data);--}}
-{{--                    if (data.status === 200){--}}
-{{--                        swal("Good job!", "You clicked the button!", "success");--}}
-{{--                        document.getElementById("contactUsForm").reset();--}}
-{{--                    }--}}
-{{--            },--}}
-{{--            error: function (reject) {--}}
-{{--                if( reject.status === 422 ) {--}}
-{{--                    var errors = $.parseJSON(reject.responseText);--}}
-{{--                    $.each(errors, function (key, val) {--}}
-{{--                        $("#" + key + "_error").text(val[0]);--}}
-{{--                    });--}}
-{{--                }--}}
-{{--            }--}}
-{{--        });--}}
-{{--    }--}}
-{{--</script>--}}
 </html>

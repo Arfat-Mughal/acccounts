@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::post('/contact-us',[MainController::class,'store'])->name('store.requests');
+Route::post('/subscriptions',[MainController::class,'subscriptions'])->name('store.subscriptions');
 
 Route::namespace('Auth')->group(function () {
     Route::get('/login',[LoginController::class,'show_login_form'])->name('login');

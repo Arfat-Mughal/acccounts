@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class MainController extends Controller
@@ -33,5 +35,16 @@ class MainController extends Controller
         return redirect()
             ->back()
             ->withSuccessMessage('Successfully Send');
+    }
+
+    public function subscriptions(Request $request)
+    {
+        $email = $request->email;
+        if (isset($email)){
+            Subscription::create(['email'=>$email]);
+            return redirect()
+                ->back()
+                ->withSuccessMessage('Saved Successfully');
+        }
     }
 }
