@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('main');
 });
+
+Route::post('/contact-us',[MainController::class,'store'])->name('store.requests');
+Route::post('/subscriptions',[MainController::class,'subscriptions'])->name('store.subscriptions');
 
 Route::namespace('Auth')->group(function () {
     Route::get('/login',[LoginController::class,'show_login_form'])->name('login');
